@@ -1,5 +1,7 @@
 package christmas.domain;
 
+import java.util.Arrays;
+
 public enum Menu {
     MUSHROOM_SOUP("양송이수프", "애피타이저",6_000),
     TAPAS("타파스", "애피타이저", 5_500),
@@ -37,5 +39,12 @@ public enum Menu {
 
     public int getPrice() {
         return price;
+    }
+
+    public static Menu getMenu(String menuName) {
+        return Arrays.stream(values())
+                .filter(menu -> menu.name.equals(menuName))
+                .findFirst()
+                .get();
     }
 }
