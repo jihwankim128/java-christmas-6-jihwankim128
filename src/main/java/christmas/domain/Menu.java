@@ -17,7 +17,9 @@ public enum Menu {
 
     ZERO_COKE("제로콜라", "음료", 3_000),
     RED_WINE("레드와인", "음료", 60_000),
-    CHAMPAGNE("샴페인", "음료", 25_000);
+    CHAMPAGNE("샴페인", "음료", 25_000),
+
+    ETC("ERROR", "ERROR", -1);
 
     private String name;
     private String type;
@@ -45,6 +47,6 @@ public enum Menu {
         return Arrays.stream(values())
                 .filter(menu -> menu.name.equals(menuName))
                 .findFirst()
-                .get();
+                .orElse(ETC);
     }
 }
