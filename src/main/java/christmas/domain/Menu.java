@@ -7,8 +7,8 @@ public class Menu {
         validate();
     }
 
-    void validate() {
-        if(foodMenu.getName().equals("ERROR")) {
+    private void validate() {
+        if(foodMenu.equals(FoodMenus.ETC)) {
             throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
         }
     }
