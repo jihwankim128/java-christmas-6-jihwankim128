@@ -16,4 +16,16 @@ public class Menu {
     public FoodMenus getFoodMenu() {
         return foodMenu;
     }
+
+    public String getFoodName() {
+        return foodMenu.getName();
+    }
+
+    public String getFoodType() {
+        return foodMenu.getType();
+    }
+
+    public int getFoodPrice() {
+        return foodMenu.getPrice();
+    }
 }
