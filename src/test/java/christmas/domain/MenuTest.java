@@ -3,6 +3,7 @@ package christmas.domain;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import christmas.utility.IllegalArgumentMessage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -44,7 +45,7 @@ class MenuTest {
     void 없는_메뉴_테스트(String menuName, String menuType, int menuPrice) {
         assertThatThrownBy(()-> new Menu(menuName))
                 .isInstanceOf(IllegalArgumentException.class)
-                .hasMessage("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
+                .hasMessage(IllegalArgumentMessage.INVALID_ORDER);
     }
 
     void assertEqualResult(String menuName, String menuType, int menuPrice) {

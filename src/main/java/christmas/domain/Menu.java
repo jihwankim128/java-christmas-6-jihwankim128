@@ -1,5 +1,7 @@
 package christmas.domain;
 
+import christmas.utility.IllegalArgumentMessage;
+
 public class Menu {
     FoodMenus foodMenu;
     public Menu(String foodMenu) {
@@ -9,7 +11,7 @@ public class Menu {
 
     private void validate() {
         if(foodMenu.equals(FoodMenus.ETC)) {
-            throw new IllegalArgumentException("[ERROR] 유효하지 않은 주문입니다. 다시 입력해 주세요.");
+            throw new IllegalArgumentException(IllegalArgumentMessage.INVALID_ORDER);
         }
     }
 
