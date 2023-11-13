@@ -21,9 +21,9 @@ public enum Menu {
 
     ETC("ERROR", "ERROR", -1);
 
-    private String name;
-    private String type;
-    private int price;
+    private final String name;
+    private final String type;
+    private final int price;
 
     Menu(String name, String type, int price) {
         this.name = name;
