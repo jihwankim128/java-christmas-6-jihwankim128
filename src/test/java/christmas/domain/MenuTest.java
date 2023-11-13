@@ -42,7 +42,7 @@ class MenuTest {
     @CsvSource({"포비,메인,100", "오리,디저트,0", "x,x,0"})
     void 없는_메뉴_테스트(String menuName, String menuType, int menuPrice) {
         menu = Menu.getMenu(menuName);
-        assertEqualResult("ERROR", "ERROR", -1);
+        assertTrue(menu.equals(Menu.ETC));
     }
 
     void assertEqualResult(String menuName, String menuType, int menuPrice) {
