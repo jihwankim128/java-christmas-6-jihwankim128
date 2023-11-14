@@ -30,7 +30,6 @@ public class Benefit {
         this.event = event;
         this.appliedBenefits = new ArrayList<>();
         applyBenefit();
-        getAppliedBenefits();
     }
 
     private void applyBenefit() {
@@ -40,15 +39,16 @@ public class Benefit {
             weekEndBenefit.applyWeekEndBenefit(orders, event);
             specialBenefit.applySpecialBenefit(event);
             giftBenefit.applyGiftBenefit(event, totalPrice);
+            getAppliedBenefits();
         }
     }
 
     private void getAppliedBenefits() {
         addAppliedDDayBenefit();
         addAppliedWeekDayBenefit();
-        addWeekEndBenefit();
-        addSpecialBenefit();
-        addGiftBenefit();
+        addAppliedWeekEndBenefit();
+        addAppliedSpecialBenefit();
+        addAppliedGiftBenefit();
     }
 
     private void addAppliedDDayBenefit() {
@@ -63,19 +63,19 @@ public class Benefit {
         }
     }
 
-    private void addWeekEndBenefit() {
+    private void addAppliedWeekEndBenefit() {
         if(event.isWeekEndEvent()) {
             this.appliedBenefits.add(weekEndBenefit.toString());
         }
     }
 
-    private void addSpecialBenefit() {
+    private void addAppliedSpecialBenefit() {
         if(event.isSpecialEvent()) {
             this.appliedBenefits.add(specialBenefit.toString());
         }
     }
 
-    private void addGiftBenefit() {
+    private void addAppliedGiftBenefit() {
         if(event.isGiftEvent(totalPrice)) {
             this.appliedBenefits.add(giftBenefit.toString());
         }
@@ -103,6 +103,9 @@ public class Benefit {
 
     @Override
     public String toString() {
+        if(appliedBenefits.isEmpty()) {
+            return "없음\n";
+        }
         StringBuilder stringBuilder = new StringBuilder();
         for(String benefit: appliedBenefits) {
             stringBuilder.append(benefit);
