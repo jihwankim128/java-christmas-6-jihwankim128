@@ -20,10 +20,10 @@ public class WeekDayBenefit {
 
     public void applyWeekDayBenefit(List<Order> orders, Event event) {
         if (event.isWeekDayEvent()) {
-            this.weekDayBenefit =
-                    (int) orders.stream()
-                            .map(order -> order.getMenuType().equals("디저트"))
-                            .count() * DISCOUNT_PRICE;
+            this.weekDayBenefit = orders.stream()
+                    .filter(order -> order.getMenuType().equals("디저트"))
+                    .mapToInt(Order::getQuantity)
+                    .sum() * DISCOUNT_PRICE;
         }
     }
 
