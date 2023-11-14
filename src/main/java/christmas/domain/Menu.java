@@ -19,7 +19,7 @@ public enum Menu {
     RED_WINE("레드와인", "음료", 60_000),
     CHAMPAGNE("샴페인", "음료", 25_000),
 
-    ETC("ERROR", "ERROR", -1);
+    ETC("없음", "없음", 0);
 
     private final String name;
     private final String type;
