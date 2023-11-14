@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Benefit {
-    public static final int MINIMUM_EVENT_DISCOUNT_AMOUNT = 10000;
+    public static final int DISCOUNT_EVENT_MINIMUM_TOTAL_PRICE = 10000;
 
     private final List<String> appliedBenefits = new ArrayList<>();
     private final DDayBenefit dDayBenefit = new DDayBenefit();
@@ -21,7 +21,7 @@ public class Benefit {
     private final GiftBenefit giftBenefit = new GiftBenefit();
 
     public void applyBenefit(List<Order> orders, TotalPrice totalPrice, Event event) {
-        if(totalPrice.getTotalPrice() >= MINIMUM_EVENT_DISCOUNT_AMOUNT) {
+        if(totalPrice.getTotalPrice() >= DISCOUNT_EVENT_MINIMUM_TOTAL_PRICE) {
             applyDDayBenefit(event);
             applyWeekDayBenefit(orders, event);
             applyWeekEndBenefit(orders, event);
@@ -66,23 +66,23 @@ public class Benefit {
     }
 
     public int getDDayBenefit() {
-        return dDayBenefit.getDDayBenefit();
+        return dDayBenefit.getDiscountAmount();
     }
 
     public int getWeekDayBenefit() {
-        return weekDayBenefit.getWeekDayBenefit();
+        return weekDayBenefit.getDiscountAmount();
     }
 
     public int getWeekEndBenefit() {
-        return weekEndBenefit.getWeekEndBenefit();
+        return weekEndBenefit.getDiscountAmount();
     }
 
     public int getSpecialBenefit() {
-        return specialBenefit.getSpecialBenefit();
+        return specialBenefit.getDiscountAmount();
     }
 
     public int getGiftBenefit() {
-        return giftBenefit.getGiftBenefit();
+        return giftBenefit.getDiscountAmount();
     }
 
     @Override
