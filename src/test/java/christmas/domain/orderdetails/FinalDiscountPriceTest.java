@@ -21,17 +21,17 @@ class FinalDiscountPriceTest {
                 new Order("제로콜라", 1)
         );
         Benefit benefit = new Benefit(orders, new TotalPrice(orders), new Event(3));
-        FinalDiscountPrice finalDiscountPrice = new FinalDiscountPrice(benefit);
-        assertEquals(31246, finalDiscountPrice.getDiscountPrice());
-        assertThat(finalDiscountPrice.toString()).contains("-31,246원");
+        TotalDiscountAmount totalDiscountAmount = new TotalDiscountAmount(benefit);
+        assertEquals(31246, totalDiscountAmount.getDiscountPrice());
+        assertThat(totalDiscountAmount.toString()).contains("-31,246원");
     }
 
     @Test
     void 혜택이_없을_경우_테스트() {
         List<Order> orders = Arrays.asList(new Order("타파스", 1), new Order("제로콜라",1));
         Benefit benefit = new Benefit(orders, new TotalPrice(orders), new Event(26));
-        FinalDiscountPrice finalDiscountPrice = new FinalDiscountPrice(benefit);
-        assertEquals(0, finalDiscountPrice.getDiscountPrice());
-        assertThat(finalDiscountPrice.toString()).contains("0원");
+        TotalDiscountAmount totalDiscountAmount = new TotalDiscountAmount(benefit);
+        assertEquals(0, totalDiscountAmount.getDiscountPrice());
+        assertThat(totalDiscountAmount.toString()).contains("0원");
     }
 }

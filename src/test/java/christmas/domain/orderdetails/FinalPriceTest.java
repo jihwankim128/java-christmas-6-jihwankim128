@@ -1,7 +1,6 @@
 package christmas.domain.orderdetails;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 import christmas.domain.Event;
 import christmas.domain.Order;
@@ -22,8 +21,8 @@ class FinalPriceTest {
         );
         TotalPrice totalPrice = new TotalPrice(orders);
         Benefit benefit = new Benefit(orders, new TotalPrice(orders), new Event(3));
-        FinalDiscountPrice finalDiscountPrice = new FinalDiscountPrice(benefit);
-        FinalPrice finalPrice = new FinalPrice(totalPrice, finalDiscountPrice, new Event(3));
+        TotalDiscountAmount totalDiscountAmount = new TotalDiscountAmount(benefit);
+        FinalPrice finalPrice = new FinalPrice(totalPrice, totalDiscountAmount, new Event(3));
         assertThat(finalPrice.toString()).contains("135,754원");
     }
     @Test
@@ -31,8 +30,8 @@ class FinalPriceTest {
         List<Order> orders = Arrays.asList(new Order("타파스", 1), new Order("제로콜라",1));
         TotalPrice totalPrice = new TotalPrice(orders);
         Benefit benefit = new Benefit(orders, new TotalPrice(orders), new Event(26));
-        FinalDiscountPrice finalDiscountPrice = new FinalDiscountPrice(benefit);
-        FinalPrice finalPrice = new FinalPrice(totalPrice, finalDiscountPrice, new Event(26));
+        TotalDiscountAmount totalDiscountAmount = new TotalDiscountAmount(benefit);
+        FinalPrice finalPrice = new FinalPrice(totalPrice, totalDiscountAmount, new Event(26));
         assertThat(finalPrice.toString()).isEqualTo(totalPrice.toString());
     }
 }

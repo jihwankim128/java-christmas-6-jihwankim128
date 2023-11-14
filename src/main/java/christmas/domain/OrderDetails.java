@@ -2,20 +2,19 @@ package christmas.domain;
 
 import christmas.domain.orderdetails.Benefit;
 import christmas.domain.orderdetails.EventBadge;
-import christmas.domain.orderdetails.FinalDiscountPrice;
+import christmas.domain.orderdetails.TotalDiscountAmount;
 import christmas.domain.orderdetails.FinalPrice;
 import christmas.domain.orderdetails.GiftMenu;
 import christmas.domain.orderdetails.Orders;
 import christmas.domain.orderdetails.TotalPrice;
 import java.util.List;
-import org.mockito.internal.matchers.Or;
 
 public class OrderDetails {
     private Orders orders;
     private TotalPrice totalPrice;
     private GiftMenu giftMenu;
     private Benefit benefit;
-    private FinalDiscountPrice finalDiscountPrice;
+    private TotalDiscountAmount totalDiscountAmount;
     private FinalPrice finalPrice;
     private EventBadge badge;
 
@@ -28,9 +27,9 @@ public class OrderDetails {
         this.totalPrice = new TotalPrice(orders);
         this.giftMenu = new GiftMenu(totalPrice, event);
         this.benefit = new Benefit(orders, totalPrice, event);
-        this.finalDiscountPrice = new FinalDiscountPrice(benefit);
-        this.finalPrice = new FinalPrice(totalPrice, finalDiscountPrice, event);
-        this.badge = EventBadge.getBadge(finalDiscountPrice.getDiscountPrice());
+        this.totalDiscountAmount = new TotalDiscountAmount(benefit);
+        this.finalPrice = new FinalPrice(totalPrice, totalDiscountAmount, event);
+        this.badge = EventBadge.getBadge(totalDiscountAmount.getDiscountPrice());
     }
 
     public Orders getOrders() {
@@ -49,8 +48,8 @@ public class OrderDetails {
         return benefit;
     }
 
-    public FinalDiscountPrice getFinalDiscountPrice() {
-        return finalDiscountPrice;
+    public TotalDiscountAmount getFinalDiscountPrice() {
+        return totalDiscountAmount;
     }
 
     public FinalPrice getFinalPrice() {

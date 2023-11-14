@@ -3,7 +3,7 @@ package christmas.domain.orderdetails;
 import java.text.NumberFormat;
 import java.util.Locale;
 
-public class FinalDiscountPrice {
+public class TotalDiscountAmount {
     private int discountPrice = 0;
 
     public void setDiscountPrice(int discountPrice) {

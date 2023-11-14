@@ -8,8 +8,8 @@ import java.util.Locale;
 public class FinalPrice {
     private int finalPrice;
 
-    public FinalPrice(TotalPrice totalPrice, FinalDiscountPrice finalDiscountPrice, Event event) {
-        this.finalPrice = totalPrice.getTotalPrice() - finalDiscountPrice.getDiscountPrice();
+    public FinalPrice(TotalPrice totalPrice, TotalDiscountAmount totalDiscountAmount, Event event) {
+        this.finalPrice = totalPrice.getTotalPrice() - totalDiscountAmount.getDiscountPrice();
         if(event.isGiftEvent(totalPrice.getTotalPrice())) {
             this.finalPrice += Menu.CHAMPAGNE.getPrice();
         }
