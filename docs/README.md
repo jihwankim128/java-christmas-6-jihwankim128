@@ -4,10 +4,15 @@
 - [x] 메뉴와 수량을 선택하여 주문한다. - Order
   - [x] 메뉴가 존재하는지 확인하기 위해서 메뉴를 만든다. - Menu
 - [ ] 주문에 대해 혜택을 적용하여 최종 주문 결과를 생성한다. - OrderDetails
-  - [] 주문 목록을 저장하고 관리한다 - Orders
-  - [ ] 주문 목록의 최종 가격을 정한다 - TotalPrice
-  - [ ] 증정 이벤트가 해당하는지 확인하고 상품을 증정한다 - GiftMenu
+  - [x] 주문 목록을 저장하고 관리한다 - Orders
+  - [x] 주문 목록의 최종 가격을 정한다 - TotalPrice
+  - [x] 증정 이벤트가 해당하는지 확인하고 상품을 증정한다 - GiftMenu
   - [ ] 적용할 수 있는 각종 혜택을 적용한다. - Benefit
+    - [ ] 디데이 혜택 - DDayBenefit
+    - [ ] 평일 혜택 - WeekDayBenefit
+    - [ ] 주말 혜택 - WeekEndBenefit
+    - [ ] 특별 혜택 - SpecialBenefit
+    - [ ] 증정 혜택 - GiftBenefit
   - [ ] 적용한 혜택의 최종 혜택 금액을 정한다 - FinalDiscountAmount
   - [ ] 최종적으로 결제할 금액을 정한다. - FinalPrice
   - [ ] 혜택금액에 따른 이벤트 배지를 부여한다. - EventBadge
