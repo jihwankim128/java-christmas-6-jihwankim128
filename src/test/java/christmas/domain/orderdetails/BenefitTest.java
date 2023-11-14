@@ -22,7 +22,7 @@ class BenefitTest {
                 new Order("초코케이크", 2),
                 new Order("제로콜라", 1)
         );
-        benefit = new Benefit(orders, new TotalPrice(orders).getTotalPrice(), new Event(3));
+        benefit = new Benefit(orders, new TotalPrice(orders), new Event(3));
         assertEqualsResult(1200, 4046, 0, 1000, 25000);
         assertThatResult();
     }
@@ -30,7 +30,7 @@ class BenefitTest {
     @Test
     void 무혜택_테스트() {
         List<Order> orders = Arrays.asList(new Order("타파스", 1), new Order("제로콜라",1));
-        benefit = new Benefit(orders, new TotalPrice(orders).getTotalPrice(), new Event(26));
+        benefit = new Benefit(orders, new TotalPrice(orders), new Event(26));
         assertEqualsResult(0, 0, 0, 0, 0);
         assertThat(benefit.toString()).contains("없음");
     }
