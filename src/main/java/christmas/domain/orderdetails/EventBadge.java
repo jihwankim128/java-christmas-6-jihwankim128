@@ -14,14 +14,14 @@ public enum EventBadge {
         this.minimumBenefit = minimumBenefit;
     }
 
-    public static EventBadge getBadge(int discountAmount) {
-        if(discountAmount >= SANTA.minimumBenefit) {
+    public static EventBadge getBadge(int finalDiscountPrice) {
+        if(finalDiscountPrice >= SANTA.minimumBenefit) {
             return SANTA;
         }
-        if(discountAmount >= TREE.minimumBenefit) {
+        if(finalDiscountPrice >= TREE.minimumBenefit) {
             return TREE;
         }
-        if(discountAmount >= STAR.minimumBenefit) {
+        if(finalDiscountPrice >= STAR.minimumBenefit) {
             return STAR;
         }
         return ETC;
