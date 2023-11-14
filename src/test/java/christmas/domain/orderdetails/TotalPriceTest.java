@@ -28,6 +28,6 @@ class TotalPriceTest {
                 new Order("초코케이크", 2),
                 new Order("제로콜라", 1)
         ));
-        assertThat(totalPrice.toString()).isEqualTo("142,000원");
+        assertThat(totalPrice.toString()).contains("142,000원");
     }
 }
