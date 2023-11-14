@@ -3,22 +3,25 @@ package christmas.domain;
 import christmas.utility.IllegalArgumentMessage;
 
 public class Order {
+    public static final int MINIMUM_QUANTITY = 1;
     private final Menu menu;
     private final int quantity;
-    private final int reservationDate;
-    public Order(String menuName, int quantity, int reservationDate) {
+
+    public Order(String menuName, int quantity) {
+        validateHasMenu(menuName);
+        validateQuantity(quantity);
         this.menu = Menu.getMenu(menuName);
-        validate(quantity);
         this.quantity = quantity;
-        this.reservationDate = reservationDate;
     }
 
-    private void validate(int quantity) {
-        final int minimumQuantity = 1;
-        if(menu.equals(Menu.ETC)) {
+    private void validateHasMenu(String menuName) {
+        if(Menu.getMenu(menuName).equals(Menu.ETC)) {
             throw new IllegalArgumentException(IllegalArgumentMessage.INVALID_ORDER);
         }
-        if(quantity < minimumQuantity) {
+    }
+
+    private void validateQuantity(int quantity) {
+        if(quantity < MINIMUM_QUANTITY) {
             throw new IllegalArgumentException(IllegalArgumentMessage.INVALID_ORDER);
         }
     }
@@ -27,15 +30,15 @@ public class Order {
         return menu;
     }
 
-    public String getFoodName() {
+    public String getMenuName() {
         return menu.getName();
     }
 
-    public String getFoodType() {
+    public String getMenuType() {
         return menu.getType();
     }
 
-    public int getFoodPrice() {
+    public int getMenuPrice() {
         return menu.getPrice();
     }
 
@@ -43,7 +46,8 @@ public class Order {
         return quantity;
     }
 
-    public int getReservationDate() {
-        return reservationDate;
+    @Override
+    public String toString() {
+        return getMenuName() + " " + getQuantity() + "개\n";
     }
 }
