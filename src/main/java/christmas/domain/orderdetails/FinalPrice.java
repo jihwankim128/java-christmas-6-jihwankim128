@@ -1,13 +1,18 @@
 package christmas.domain.orderdetails;
 
+import christmas.domain.Event;
+import christmas.domain.Menu;
 import java.text.NumberFormat;
 import java.util.Locale;
 
 public class FinalPrice {
     private int finalPrice;
 
-    public FinalPrice(TotalPrice totalPrice, FinalDiscountPrice finalDiscountPrice) {
+    public FinalPrice(TotalPrice totalPrice, FinalDiscountPrice finalDiscountPrice, Event event) {
         this.finalPrice = totalPrice.getTotalPrice() - finalDiscountPrice.getDiscountPrice();
+        if(event.isGiftEvent(totalPrice.getTotalPrice())) {
+            this.finalPrice += Menu.CHAMPAGNE.getPrice();
+        }
     }
 
     public int getFinalPrice() {
