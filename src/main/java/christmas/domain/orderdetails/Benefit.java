@@ -13,76 +13,60 @@ import java.util.List;
 public class Benefit {
     public static final int MINIMUM_EVENT_DISCOUNT_AMOUNT = 10000;
 
-    private final List<Order> orders;
-    private final int totalPrice;
-    private final Event event;
+    private final List<String> appliedBenefits = new ArrayList<>();
+    private final DDayBenefit dDayBenefit = new DDayBenefit();
+    private final WeekDayBenefit weekDayBenefit = new WeekDayBenefit();
+    private final WeekEndBenefit weekEndBenefit = new WeekEndBenefit();
+    private final SpecialBenefit specialBenefit = new SpecialBenefit();
+    private final GiftBenefit giftBenefit = new GiftBenefit();
 
-    private List<String> appliedBenefits;
-    private DDayBenefit dDayBenefit = new DDayBenefit();
-    private WeekDayBenefit weekDayBenefit = new WeekDayBenefit();
-    private WeekEndBenefit weekEndBenefit = new WeekEndBenefit();
-    private SpecialBenefit specialBenefit = new SpecialBenefit();
-    private GiftBenefit giftBenefit = new GiftBenefit();
-
-    public Benefit(List<Order> orders, TotalPrice totalPrice, Event event) {
-        this.orders = orders;
-        this.totalPrice = totalPrice.getTotalPrice();
-        this.event = event;
-        this.appliedBenefits = new ArrayList<>();
-        applyBenefit();
-    }
-
-    private void applyBenefit() {
-        if(totalPrice >= MINIMUM_EVENT_DISCOUNT_AMOUNT) {
-            dDayBenefit.applyDDayBenefit(event);
-            weekDayBenefit.applyWeekDayBenefit(orders, event);
-            weekEndBenefit.applyWeekEndBenefit(orders, event);
-            specialBenefit.applySpecialBenefit(event);
-            giftBenefit.applyGiftBenefit(event, totalPrice);
-            getAppliedBenefits();
+    public void applyBenefit(List<Order> orders, TotalPrice totalPrice, Event event) {
+        if(totalPrice.getTotalPrice() >= MINIMUM_EVENT_DISCOUNT_AMOUNT) {
+            applyDDayBenefit(event);
+            applyWeekDayBenefit(orders, event);
+            applyWeekEndBenefit(orders, event);
+            applySpecialBenefit(event);
+            applyGiftBenefit(totalPrice.getTotalPrice(), event);
         }
     }
 
-    private void getAppliedBenefits() {
-        addAppliedDDayBenefit();
-        addAppliedWeekDayBenefit();
-        addAppliedWeekEndBenefit();
-        addAppliedSpecialBenefit();
-        addAppliedGiftBenefit();
-    }
-
-    private void addAppliedDDayBenefit() {
+    private void applyDDayBenefit(Event event) {
         if(event.isDDayEvent()) {
+            dDayBenefit.applyDDayBenefit(event.getReservationDate());
             this.appliedBenefits.add(dDayBenefit.toString());
         }
     }
 
-    private void addAppliedWeekDayBenefit() {
+    private void applyWeekDayBenefit(List<Order> orders, Event event) {
         if(event.isWeekDayEvent()) {
+            weekDayBenefit.applyWeekDayBenefit(orders);
             this.appliedBenefits.add(weekDayBenefit.toString());
         }
     }
 
-    private void addAppliedWeekEndBenefit() {
+    private void applyWeekEndBenefit(List<Order> orders, Event event) {
         if(event.isWeekEndEvent()) {
+            weekEndBenefit.applyWeekEndBenefit(orders);
             this.appliedBenefits.add(weekEndBenefit.toString());
         }
     }
 
-    private void addAppliedSpecialBenefit() {
+    private void applySpecialBenefit(Event event) {
         if(event.isSpecialEvent()) {
+            specialBenefit.applySpecialBenefit();
             this.appliedBenefits.add(specialBenefit.toString());
         }
     }
 
-    private void addAppliedGiftBenefit() {
+    private void applyGiftBenefit(int totalPrice, Event event) {
         if(event.isGiftEvent(totalPrice)) {
+            giftBenefit.applyGiftBenefit();
             this.appliedBenefits.add(giftBenefit.toString());
         }
     }
 
-    public int getdDayBenefit() {
-        return dDayBenefit.getdDayBenefit();
+    public int getDDayBenefit() {
+        return dDayBenefit.getDDayBenefit();
     }
 
     public int getWeekDayBenefit() {

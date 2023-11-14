@@ -8,19 +8,13 @@ import java.util.Locale;
 
 public class WeekEndBenefit {
     public static final int DISCOUNT_PRICE = 2023;
-    private int weekEndBenefit;
+    private int weekEndBenefit = 0;
 
-    public WeekEndBenefit() {
-        this.weekEndBenefit = 0;
-    }
-
-    public void applyWeekEndBenefit(List<Order> orders, Event event) {
-        if (event.isWeekEndEvent()) {
-            this.weekEndBenefit = orders.stream()
-                    .filter(order -> order.getMenuType().equals("메인"))
-                    .mapToInt(Order::getQuantity)
-                    .sum() * DISCOUNT_PRICE;
-        }
+    public void applyWeekEndBenefit(List<Order> orders) {
+        this.weekEndBenefit = orders.stream()
+                .filter(order -> order.getMenuType().equals("메인"))
+                .mapToInt(Order::getQuantity)
+                .sum() * DISCOUNT_PRICE;
     }
 
     public int getWeekEndBenefit() {

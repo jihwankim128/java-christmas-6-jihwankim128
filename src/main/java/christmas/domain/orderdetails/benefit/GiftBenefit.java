@@ -6,16 +6,10 @@ import java.text.NumberFormat;
 import java.util.Locale;
 
 public class GiftBenefit {
-    private int giftBenefit;
+    private int giftBenefit = 0;
 
-    public GiftBenefit() {
-        this.giftBenefit = 0;
-    }
-
-    public void applyGiftBenefit(Event event, int totalPrice) {
-        if (event.isGiftEvent(totalPrice)) {
-            this.giftBenefit = Menu.CHAMPAGNE.getPrice();
-        }
+    public void applyGiftBenefit() {
+        this.giftBenefit = Menu.CHAMPAGNE.getPrice();
     }
 
     public int getGiftBenefit() {

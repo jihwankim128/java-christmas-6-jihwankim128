@@ -7,16 +7,10 @@ import java.util.Locale;
 
 public class SpecialBenefit {
     public static final int SPECIAL_BENEFIT_PRICE = 1000;
-    private int specialBenefit;
+    private int specialBenefit = 0;
 
-    public SpecialBenefit() {
-        this.specialBenefit = 0;
-    }
-
-    public void applySpecialBenefit(Event event) {
-        if (event.isSpecialEvent()) {
-            this.specialBenefit = SPECIAL_BENEFIT_PRICE;
-        }
+    public void applySpecialBenefit() {
+        this.specialBenefit = SPECIAL_BENEFIT_PRICE;
     }
 
     public int getSpecialBenefit() {

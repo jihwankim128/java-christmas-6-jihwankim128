@@ -8,23 +8,17 @@ import java.util.Locale;
 
 public class WeekDayBenefit {
     public static final int DISCOUNT_PRICE = 2023;
-    private int weekDayBenefit;
-
-    public WeekDayBenefit() {
-        this.weekDayBenefit = 0;
-    }
+    private int weekDayBenefit = 0;
 
     public int getWeekDayBenefit() {
         return weekDayBenefit;
     }
 
-    public void applyWeekDayBenefit(List<Order> orders, Event event) {
-        if (event.isWeekDayEvent()) {
-            this.weekDayBenefit = orders.stream()
-                    .filter(order -> order.getMenuType().equals("디저트"))
-                    .mapToInt(Order::getQuantity)
-                    .sum() * DISCOUNT_PRICE;
-        }
+    public void applyWeekDayBenefit(List<Order> orders) {
+        this.weekDayBenefit = orders.stream()
+                .filter(order -> order.getMenuType().equals("디저트"))
+                .mapToInt(Order::getQuantity)
+                .sum() * DISCOUNT_PRICE;
     }
 
     @Override
