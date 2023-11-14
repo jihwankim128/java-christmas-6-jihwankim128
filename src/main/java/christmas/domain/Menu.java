@@ -45,7 +45,7 @@ public enum Menu {
 
     public static Menu getMenu(String menuName) {
         return Arrays.stream(values())
-                .filter(menuList -> menuList.name.equals(menuName))
+                .filter(menu-> menu.name.equals(menuName))
                 .findFirst()
                 .orElse(ETC);
     }
