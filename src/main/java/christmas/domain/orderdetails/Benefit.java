@@ -29,6 +29,14 @@ public class Benefit {
             applyGiftBenefit(totalPrice.getTotalPrice(), event);
         }
     }
+    
+    public int totalDiscountAmount() {
+        return dDayBenefit.getDiscountAmount()
+                + weekDayBenefit.getDiscountAmount()
+                + weekEndBenefit.getDiscountAmount()
+                + specialBenefit.getDiscountAmount()
+                + giftBenefit.getDiscountAmount();
+    }
 
     private void applyDDayBenefit(Event event) {
         if(event.isDDayEvent()) {
@@ -63,26 +71,6 @@ public class Benefit {
             giftBenefit.applyGiftBenefit();
             this.appliedBenefits.add(giftBenefit.toString());
         }
-    }
-
-    public int getDDayBenefit() {
-        return dDayBenefit.getDiscountAmount();
-    }
-
-    public int getWeekDayBenefit() {
-        return weekDayBenefit.getDiscountAmount();
-    }
-
-    public int getWeekEndBenefit() {
-        return weekEndBenefit.getDiscountAmount();
-    }
-
-    public int getSpecialBenefit() {
-        return specialBenefit.getDiscountAmount();
-    }
-
-    public int getGiftBenefit() {
-        return giftBenefit.getDiscountAmount();
     }
 
     @Override

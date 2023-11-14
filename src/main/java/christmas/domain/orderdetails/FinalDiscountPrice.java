@@ -4,19 +4,10 @@ import java.text.NumberFormat;
 import java.util.Locale;
 
 public class FinalDiscountPrice {
-    private int discountPrice;
+    private int discountPrice = 0;
 
-    public FinalDiscountPrice(Benefit benefit) {
-        this.discountPrice = 0;
-        calculateAppliedBenefits(benefit);
-    }
-
-    private void calculateAppliedBenefits(Benefit benefit) {
-        this.discountPrice += benefit.getdDayBenefit();
-        this.discountPrice += benefit.getWeekDayBenefit();
-        this.discountPrice += benefit.getWeekEndBenefit();
-        this.discountPrice += benefit.getSpecialBenefit();
-        this.discountPrice += benefit.getGiftBenefit();
+    public void setDiscountPrice(int discountPrice) {
+        this.discountPrice = discountPrice;
     }
 
     public int getDiscountPrice() {
