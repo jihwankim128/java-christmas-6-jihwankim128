@@ -24,9 +24,9 @@ public class Benefit {
     private SpecialBenefit specialBenefit = new SpecialBenefit();
     private GiftBenefit giftBenefit = new GiftBenefit();
 
-    public Benefit(List<Order> orders, int totalPrice, Event event) {
+    public Benefit(List<Order> orders, TotalPrice totalPrice, Event event) {
         this.orders = orders;
-        this.totalPrice = totalPrice;
+        this.totalPrice = totalPrice.getTotalPrice();
         this.event = event;
         this.appliedBenefits = new ArrayList<>();
         applyBenefit();

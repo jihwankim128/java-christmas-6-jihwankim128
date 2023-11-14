@@ -6,9 +6,9 @@ import christmas.domain.Menu;
 public class GiftMenu {
     private Menu giftMenu;
 
-    public GiftMenu(int totalPrice, Event event) {
+    public GiftMenu(TotalPrice totalPrice, Event event) {
         this.giftMenu =  Menu.ETC;
-        if(event.isGiftEvent(totalPrice)) {
+        if(event.isGiftEvent(totalPrice.getTotalPrice())) {
             this.giftMenu = Menu.CHAMPAGNE;
         }
     }
