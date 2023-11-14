@@ -12,7 +12,7 @@ public class FinalDiscountPrice {
     }
 
     private void calculateAppliedBenefits(Benefit benefit) {
-        this.discountPrice += benefit.getGiftBenefit();
+        this.discountPrice += benefit.getdDayBenefit();
         this.discountPrice += benefit.getWeekDayBenefit();
         this.discountPrice += benefit.getWeekEndBenefit();
         this.discountPrice += benefit.getSpecialBenefit();
