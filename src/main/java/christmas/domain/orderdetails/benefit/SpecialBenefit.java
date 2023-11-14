@@ -26,7 +26,7 @@ public class SpecialBenefit {
     @Override
     public String toString() {
         NumberFormat formatter = NumberFormat.getNumberInstance(Locale.KOREA);
-        return "평일 할인: "
+        return "특별 할인: "
                 + formatter.format(-specialBenefit)
                 + "원\n";
     }
