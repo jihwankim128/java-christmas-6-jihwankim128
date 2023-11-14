@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.Locale;
 
 public class TotalPrice {
-    public static final int MINIMUM_EVENT_DISCOUNT_AMOUNT = 10000;
     private int totalPrice;
 
     public TotalPrice(List<Order> orders) {
@@ -23,6 +22,6 @@ public class TotalPrice {
     @Override
     public String toString() {
         NumberFormat formatter = NumberFormat.getNumberInstance(Locale.KOREA);
-        return formatter.format(totalPrice) + "원";
+        return formatter.format(totalPrice) + "원\n";
     }
 }
