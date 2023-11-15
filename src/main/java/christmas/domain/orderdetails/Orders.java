@@ -15,6 +15,10 @@ public class Orders {
         this.orders = orders;
     }
 
+    public List<Order> getOrders() {
+        return orders;
+    }
+
     private void validateMaxOrderQuantity(List<Order> orders) {
         if (orders.stream().mapToInt(Order::getQuantity).sum() >= MAX_ORDER_QUANTITY) {
             throw new IllegalArgumentException(IllegalArgumentMessage.INVALID_ORDER);
