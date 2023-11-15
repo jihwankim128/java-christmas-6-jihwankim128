@@ -1,6 +1,5 @@
 package christmas.domain;
 
-import christmas.domain.Order;
 import christmas.utility.IllegalArgumentMessage;
 import christmas.utility.OrderConstant;
 import java.util.Collections;

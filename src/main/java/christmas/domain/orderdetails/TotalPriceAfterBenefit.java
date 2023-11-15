@@ -15,10 +15,6 @@ public class TotalPriceAfterBenefit {
         this.totalPrice = totalPrice - totalDiscountAmount + giftMenuPrice;
     }
 
-    public int getTotalPrice() {
-        return totalPrice;
-    }
-
     @Override
     public String toString() {
         return String.format("%s원\n", Utility.numberFormatter(totalPrice));

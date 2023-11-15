@@ -1,6 +1,5 @@
 package christmas.domain.orderdetails;
 
-import christmas.domain.Event;
 import christmas.domain.Menu;
 
 public class GiftMenu {
