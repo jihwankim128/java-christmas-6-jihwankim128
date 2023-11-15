@@ -48,6 +48,6 @@ public class Order {
 
     @Override
     public String toString() {
-        return getMenuName() + " " + getQuantity() + "개\n";
+        return String.format("%s %d개\n", getMenuName(), getQuantity());
     }
 }

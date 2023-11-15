@@ -1,6 +1,7 @@
 package christmas.domain.orderdetails.benefit;
 
 import christmas.domain.Menu;
+import christmas.utility.Utility;
 import java.text.NumberFormat;
 import java.util.Locale;
 
@@ -17,9 +18,8 @@ public class GiftBenefit {
 
     @Override
     public String toString() {
-        NumberFormat formatter = NumberFormat.getNumberInstance(Locale.KOREA);
         return "증정 이벤트: "
-                + formatter.format(-discountAmount)
+                + Utility.numberFormatter(-discountAmount)
                 + "원\n";
     }
 }

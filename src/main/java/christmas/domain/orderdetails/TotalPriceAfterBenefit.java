@@ -1,5 +1,6 @@
 package christmas.domain.orderdetails;
 
+import christmas.utility.Utility;
 import java.text.NumberFormat;
 import java.util.Locale;
 
@@ -20,7 +21,6 @@ public class TotalPriceAfterBenefit {
 
     @Override
     public String toString() {
-        NumberFormat formatter = NumberFormat.getNumberInstance(Locale.KOREA);
-        return formatter.format(totalPrice) + "원\n";
+        return Utility.numberFormatter(totalPrice) + "원\n";
     }
 }
