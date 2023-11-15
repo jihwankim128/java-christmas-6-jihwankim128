@@ -1,27 +1,26 @@
 package christmas.domain.orderdetails;
 
-import christmas.domain.Event;
-import christmas.domain.Menu;
 import java.text.NumberFormat;
 import java.util.Locale;
 
 public class FinalPrice {
-    private int finalPrice;
+    private int totalPrice;
 
-    public FinalPrice(TotalPrice totalPrice, TotalDiscountAmount totalDiscountAmount, Event event) {
-        this.finalPrice = totalPrice.getTotalPrice() - totalDiscountAmount.getDiscountPrice();
-        if(event.isGiftEvent(totalPrice.getTotalPrice())) {
-            this.finalPrice += Menu.CHAMPAGNE.getPrice();
-        }
+    public FinalPrice(int totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
-    public int getFinalPrice() {
-        return finalPrice;
+    public void applyDiscountAmount(int totalDiscountAmount, int giftMenuPrice) {
+        this.totalPrice -= totalDiscountAmount + giftMenuPrice;
+    }
+
+    public int getTotalPrice() {
+        return totalPrice;
     }
 
     @Override
     public String toString() {
         NumberFormat formatter = NumberFormat.getNumberInstance(Locale.KOREA);
-        return formatter.format(finalPrice) + "원\n";
+        return formatter.format(totalPrice) + "원\n";
     }
 }
