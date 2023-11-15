@@ -18,8 +18,6 @@ public class GiftBenefit {
 
     @Override
     public String toString() {
-        return "증정 이벤트: "
-                + Utility.numberFormatter(-discountAmount)
-                + "원\n";
+        return String.format("증정 이벤트: %s원\n", Utility.numberFormatter(-discountAmount));
     }
 }

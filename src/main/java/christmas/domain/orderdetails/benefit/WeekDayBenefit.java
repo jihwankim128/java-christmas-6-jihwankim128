@@ -23,8 +23,6 @@ public class WeekDayBenefit {
 
     @Override
     public String toString() {
-        return "평일 할인: "
-                + Utility.numberFormatter(-discountAmount)
-                + "원\n";
+        return String.format("평일 할인: %s원\n", Utility.numberFormatter(-discountAmount));
     }
 }

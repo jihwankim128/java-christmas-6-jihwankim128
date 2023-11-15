@@ -17,8 +17,8 @@ public class GiftMenu {
     @Override
     public String toString() {
         if (giftMenu.equals(Menu.ETC)) {
-            return giftMenu.getName() + "\n";
+            return String.format("%s\n", giftMenu.getName());
         }
-        return giftMenu.getName() + " 1개\n";
+        return String.format("%s 1개\n", giftMenu.getName());
     }
 }

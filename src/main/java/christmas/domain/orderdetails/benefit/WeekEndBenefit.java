@@ -23,8 +23,6 @@ public class WeekEndBenefit {
 
     @Override
     public String toString() {
-        return "주말 할인: "
-                + Utility.numberFormatter(-discountAmount)
-                + "원\n";
+        return String.format("주말 할인: %s원\n", Utility.numberFormatter(-discountAmount));
     }
 }

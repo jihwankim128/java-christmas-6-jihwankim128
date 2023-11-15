@@ -20,8 +20,6 @@ public class DDayBenefit {
 
     @Override
     public String toString() {
-        return "크리스마스 디데이 할인: "
-                + Utility.numberFormatter(-discountAmount)
-                + "원\n";
+        return String.format("크리스마스 디데이 할인: %s원\n", Utility.numberFormatter(-discountAmount));
     }
 }
