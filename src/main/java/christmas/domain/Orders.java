@@ -2,6 +2,7 @@ package christmas.domain;
 
 import christmas.domain.Order;
 import christmas.utility.IllegalArgumentMessage;
+import java.util.Collections;
 import java.util.List;
 
 public class Orders {
@@ -16,7 +17,7 @@ public class Orders {
     }
 
     public List<Order> getOrders() {
-        return orders;
+        return Collections.unmodifiableList(orders);
     }
 
     private void validateMaxOrderQuantity(List<Order> orders) {
