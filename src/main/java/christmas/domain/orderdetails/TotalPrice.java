@@ -6,10 +6,9 @@ import java.util.List;
 import java.util.Locale;
 
 public class TotalPrice {
-    private int totalPrice;
+    private int totalPrice = 0;
 
     public TotalPrice(List<Order> orders) {
-        this.totalPrice = 0;
         for(Order order : orders) {
             this.totalPrice += order.getMenuPrice() * order.getQuantity();
         }
