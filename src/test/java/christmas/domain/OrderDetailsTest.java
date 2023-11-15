@@ -20,8 +20,10 @@ class OrderDetailsTest {
     List<Order> secondExampleOrders = Arrays.asList(new Order("타파스", 1), new Order("제로콜라",1));
 
     @Test
-    void 예시_주문1() {
-        OrderDetails orderDetails = new OrderDetails(firstExampleOrders, new Event(3));
+    void 예시_주문1_혜택_적용() {
+        OrderDetails orderDetails = new OrderDetails(firstExampleOrders);
+        orderDetails.provideGift(new Event(3));
+        orderDetails.applyBenefit(new Event(3));
         예시_주문_목록(orderDetails);
         예시_총_가격(orderDetails);
         예시_증정_상품(orderDetails);
@@ -33,7 +35,7 @@ class OrderDetailsTest {
 
     @Test
     void 예시_주문2() {
-        OrderDetails orderDetails = new OrderDetails(secondExampleOrders, new Event(26));
+        OrderDetails orderDetails = new OrderDetails(secondExampleOrders);
         assertThat(orderDetails.getOrders().toString()).contains("타파스 1개", "제로콜라 1개");
         assertThat(orderDetails.getTotalPrice().toString()).contains("8,500원");
         assertThat(orderDetails.getGiftMenu().toString()).contains("없음");

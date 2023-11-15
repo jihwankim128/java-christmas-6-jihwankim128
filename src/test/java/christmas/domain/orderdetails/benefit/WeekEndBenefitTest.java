@@ -22,16 +22,15 @@ class WeekEndBenefitTest {
     @Test
     void 주말_혜택_테스트() {
         WeekEndBenefit weekEndBenefit = new WeekEndBenefit();
-        weekEndBenefit.applyWeekEndBenefit(orders, new Event(2));
-        assertEquals(4046, weekEndBenefit.getWeekEndBenefit());
+        weekEndBenefit.applyWeekEndBenefit(orders);
+        assertEquals(4046, weekEndBenefit.getDiscountAmount());
         assertThat(weekEndBenefit.toString()).contains("주말 할인: -4,046원");
     }
 
     @Test
     void 평일_혜택_아닐때() {
         WeekEndBenefit weekEndBenefit = new WeekEndBenefit();
-        weekEndBenefit.applyWeekEndBenefit(orders, new Event(3));
-        assertEquals(0, weekEndBenefit.getWeekEndBenefit());
+        assertEquals(0, weekEndBenefit.getDiscountAmount());
     }
 
 }

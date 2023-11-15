@@ -1,7 +1,7 @@
 package christmas.domain.orderdetails;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import christmas.domain.Event;
 import christmas.domain.Order;
@@ -14,18 +14,16 @@ import org.junit.jupiter.api.Test;
 class GiftMenuTest {
     @Test
     void 증정_메뉴_대상() {
-        List<Order> orders = Arrays.asList(
-                new Order("티본스테이크", 1),
-                new Order("바비큐립", 1),
-                new Order("초코케이크", 2),
-                new Order("제로콜라", 1)
-        );
-        assertThat(new GiftMenu(new TotalPrice(orders), new Event(1)).toString()).contains("샴페인 1개");
+        GiftMenu giftMenu = new GiftMenu();
+        giftMenu.provide();
+        assertThat(giftMenu.toString()).contains("샴페인 1개");
+        assertEquals(25000, giftMenu.price());
     }
     
     @Test
     void 증정_메뉴_비대상() {
-        List<Order> orders = Arrays.asList(new Order("타파스", 1), new Order("제로콜라",1));
-        assertThat(new GiftMenu(new TotalPrice(orders), new Event(1)).toString()).contains("없음");
+        GiftMenu giftMenu = new GiftMenu();
+        assertThat(giftMenu.toString()).contains("없음");
+        assertEquals(0, giftMenu.price());
     }
 }

@@ -9,18 +9,18 @@ import org.junit.jupiter.api.Test;
 
 @DisplayName("증정 혜택 테스트")
 class GiftBenefitTest {
-    GiftBenefit giftBenefit = new GiftBenefit();
 
     @Test
     void 증정_상품_없음() {
-        giftBenefit.applyGiftBenefit(new Event(1), 119999);
-        assertEquals(0, giftBenefit.getGiftBenefit());
+        GiftBenefit giftBenefit = new GiftBenefit();
+        assertEquals(0, giftBenefit.getDiscountAmount());
     }
 
     @Test
     void 증정_상품_있음() {
-        giftBenefit.applyGiftBenefit(new Event(1), 120000);
-        assertEquals(25000, giftBenefit.getGiftBenefit());
+        GiftBenefit giftBenefit = new GiftBenefit();
+        giftBenefit.applyGiftBenefit();
+        assertEquals(25000, giftBenefit.getDiscountAmount());
         assertThat(giftBenefit.toString()).contains("증정 이벤트: -25,000원");
     }
 }

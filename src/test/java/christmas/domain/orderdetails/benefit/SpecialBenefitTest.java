@@ -15,15 +15,14 @@ class SpecialBenefitTest {
     @CsvSource({"3", "25"})
     void 특별_혜택_테스트(int day) {
         SpecialBenefit specialBenefit = new SpecialBenefit();
-        specialBenefit.applySpecialBenefit(new Event(day));
-        assertEquals(1000, specialBenefit.getSpecialBenefit());
+        specialBenefit.applySpecialBenefit();
+        assertEquals(1000, specialBenefit.getDiscountAmount());
         assertThat(specialBenefit.toString()).contains("특별 할인: -1,000원");
     }
 
     @Test
     void 특별_혜택_아닐때() {
         SpecialBenefit specialBenefit = new SpecialBenefit();
-        specialBenefit.applySpecialBenefit(new Event(1));
-        assertEquals(0, specialBenefit.getSpecialBenefit());
+        assertEquals(0, specialBenefit.getDiscountAmount());
     }
 }
