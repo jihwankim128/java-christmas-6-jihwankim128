@@ -39,8 +39,12 @@ public class OrderDetails {
         return orders;
     }
 
-    public TotalPriceBeforeBenefit getTotalPrice() {
+    public TotalPriceBeforeBenefit getTotalPriceBeforeBenefit() {
         return totalPriceBeforeBenefit;
+    }
+
+    public TotalPriceAfterBenefit getTotalPriceAfterBenefit() {
+        return totalPriceAfterBenefit;
     }
 
     public GiftMenu getGiftMenu() {
@@ -51,12 +55,8 @@ public class OrderDetails {
         return benefit;
     }
 
-    public TotalDiscountAmount getFinalDiscountPrice() {
+    public TotalDiscountAmount getTotalDiscountAmount() {
         return totalDiscountAmount;
-    }
-
-    public TotalPriceAfterBenefit getFinalPrice() {
-        return totalPriceAfterBenefit;
     }
 
     public EventBadge getBadge() {

@@ -37,11 +37,11 @@ class OrderDetailsTest {
     void 예시_주문2() {
         OrderDetails orderDetails = new OrderDetails(secondExampleOrders);
         assertThat(orderDetails.getOrders().toString()).contains("타파스 1개", "제로콜라 1개");
-        assertThat(orderDetails.getTotalPrice().toString()).contains("8,500원");
+        assertThat(orderDetails.getTotalPriceBeforeBenefit().toString()).contains("8,500원");
         assertThat(orderDetails.getGiftMenu().toString()).contains("없음");
         assertThat(orderDetails.getBenefit().toString()).contains("없음");
-        assertThat(orderDetails.getFinalDiscountPrice().toString()).contains("0원");
-        assertThat(orderDetails.getFinalPrice().toString()).contains("8,500원");
+        assertThat(orderDetails.getTotalDiscountAmount().toString()).contains("0원");
+        assertThat(orderDetails.getTotalPriceAfterBenefit().toString()).contains("8,500원");
         assertThat(orderDetails.getBadge().toString()).contains("없음");
     }
 
@@ -55,7 +55,7 @@ class OrderDetailsTest {
     }
 
     void 예시_총_가격(OrderDetails orderDetails) {
-        assertThat(orderDetails.getTotalPrice().toString()).contains("142,000원");
+        assertThat(orderDetails.getTotalPriceBeforeBenefit().toString()).contains("142,000원");
     }
 
     void 예시_증정_상품(OrderDetails orderDetails) {
@@ -72,11 +72,11 @@ class OrderDetailsTest {
     }
 
     void 예시_최종_할인(OrderDetails orderDetails) {
-        assertThat(orderDetails.getFinalDiscountPrice().toString()).contains("-31,246원");
+        assertThat(orderDetails.getTotalDiscountAmount().toString()).contains("-31,246원");
     }
 
     void 예시_최종_결제(OrderDetails orderDetails) {
-        assertThat(orderDetails.getFinalPrice().toString()).contains("135,754원");
+        assertThat(orderDetails.getTotalPriceAfterBenefit().toString()).contains("135,754원");
     }
 
     void 예시_배지_부여(OrderDetails orderDetails) {
