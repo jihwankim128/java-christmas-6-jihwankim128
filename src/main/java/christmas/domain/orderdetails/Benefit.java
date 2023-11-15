@@ -20,16 +20,16 @@ public class Benefit {
     private final SpecialBenefit specialBenefit = new SpecialBenefit();
     private final GiftBenefit giftBenefit = new GiftBenefit();
 
-    public void applyBenefit(List<Order> orders, TotalPrice totalPrice, Event event) {
-        if(totalPrice.getTotalPrice() >= DISCOUNT_EVENT_MINIMUM_TOTAL_PRICE) {
+    public void applyBenefit(List<Order> orders, int totalPrice, Event event) {
+        if(totalPrice >= DISCOUNT_EVENT_MINIMUM_TOTAL_PRICE) {
             applyDDayBenefit(event);
             applyWeekDayBenefit(orders, event);
             applyWeekEndBenefit(orders, event);
             applySpecialBenefit(event);
-            applyGiftBenefit(totalPrice.getTotalPrice(), event);
+            applyGiftBenefit(totalPrice, event);
         }
     }
-    
+
     public int totalDiscountAmount() {
         return dDayBenefit.getDiscountAmount()
                 + weekDayBenefit.getDiscountAmount()

@@ -5,10 +5,10 @@ import java.text.NumberFormat;
 import java.util.List;
 import java.util.Locale;
 
-public class TotalPrice {
+public class TotalPriceBeforeBenefit {
     private int totalPrice = 0;
 
-    public TotalPrice(List<Order> orders) {
+    public TotalPriceBeforeBenefit(List<Order> orders) {
         for(Order order : orders) {
             this.totalPrice += order.getMenuPrice() * order.getQuantity();
         }
