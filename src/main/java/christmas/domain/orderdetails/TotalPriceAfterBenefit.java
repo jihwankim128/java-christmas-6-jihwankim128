@@ -11,7 +11,7 @@ public class TotalPriceAfterBenefit {
     }
 
     public void applyDiscountAmount(int totalDiscountAmount, int giftMenuPrice) {
-        this.totalPrice -= totalDiscountAmount + giftMenuPrice;
+        this.totalPrice = totalPrice - totalDiscountAmount + giftMenuPrice;
     }
 
     public int getTotalPrice() {
