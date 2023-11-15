@@ -17,7 +17,7 @@ public class OrderDetails {
     private final Benefit benefit = new Benefit();
     private final TotalDiscountAmount totalDiscountAmount = new TotalDiscountAmount();
 
-    OrderDetails(List<Order> orders) {
+    public OrderDetails(List<Order> orders) {
         this.orders = new Orders(orders);
         this.totalPriceBeforeBenefit = new TotalPriceBeforeBenefit(orders);
         this.totalPriceAfterBenefit = new TotalPriceAfterBenefit(totalPriceBeforeBenefit.getTotalPrice());
