@@ -4,19 +4,19 @@ import java.text.NumberFormat;
 import java.util.Locale;
 
 public class TotalDiscountAmount {
-    private int totalDiscountAmount = 0;
+    private int discountAmount = 0;
 
-    public void setTotalDiscountAmount(int totalDiscountAmount) {
-        this.totalDiscountAmount = totalDiscountAmount;
+    public void setDiscountAmount(int discountAmount) {
+        this.discountAmount = discountAmount;
     }
 
-    public int getTotalDiscountAmount() {
-        return totalDiscountAmount;
+    public int getDiscountAmount() {
+        return discountAmount;
     }
 
     @Override
     public String toString() {
         NumberFormat formatter = NumberFormat.getNumberInstance(Locale.KOREA);
-        return formatter.format(-totalDiscountAmount) + "원\n";
+        return formatter.format(-discountAmount) + "원\n";
     }
 }
