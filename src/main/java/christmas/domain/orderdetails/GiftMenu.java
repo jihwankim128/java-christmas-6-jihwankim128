@@ -4,13 +4,14 @@ import christmas.domain.Event;
 import christmas.domain.Menu;
 
 public class GiftMenu {
-    private Menu giftMenu;
+    private Menu giftMenu = Menu.ETC;
 
-    public GiftMenu(TotalPrice totalPrice, Event event) {
-        this.giftMenu =  Menu.ETC;
-        if(event.isGiftEvent(totalPrice.getTotalPrice())) {
-            this.giftMenu = Menu.CHAMPAGNE;
-        }
+    public void provide() {
+        this.giftMenu = Menu.CHAMPAGNE;
+    }
+
+    public int price() {
+        return giftMenu.getPrice();
     }
 
     @Override
