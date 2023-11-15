@@ -53,7 +53,7 @@ class OrderTest {
     @ParameterizedTest
     @CsvSource({"포비,메인,100,4", "오리,디저트,0,2", "x,x,0,1"})
     void 없는_메뉴_테스트(String menuName, String menuType, int menuPrice, int quantity) {
-        assertThatThrownBy(()-> new Order(menuName, quantity))
+        assertThatThrownBy(() -> new Order(menuName, quantity))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(IllegalArgumentMessage.INVALID_ORDER);
     }
@@ -62,7 +62,7 @@ class OrderTest {
     void 최소_수량_테스트() {
         final String menuName = "제로콜라";
         final int quantity = 0;
-        assertThatThrownBy(()-> new Order(menuName, quantity))
+        assertThatThrownBy(() -> new Order(menuName, quantity))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage(IllegalArgumentMessage.INVALID_ORDER);
     }

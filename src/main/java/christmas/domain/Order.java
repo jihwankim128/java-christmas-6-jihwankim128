@@ -15,13 +15,13 @@ public class Order {
     }
 
     private void validateHasMenu(String menuName) {
-        if(Menu.getMenu(menuName).equals(Menu.ETC)) {
+        if (Menu.getMenu(menuName).equals(Menu.ETC)) {
             throw new IllegalArgumentException(IllegalArgumentMessage.INVALID_ORDER);
         }
     }
 
     private void validateQuantity(int quantity) {
-        if(quantity < MINIMUM_QUANTITY) {
+        if (quantity < MINIMUM_QUANTITY) {
             throw new IllegalArgumentException(IllegalArgumentMessage.INVALID_ORDER);
         }
     }

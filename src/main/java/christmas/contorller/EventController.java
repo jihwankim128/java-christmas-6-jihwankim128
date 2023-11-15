@@ -14,7 +14,7 @@ public class EventController {
     }
 
     public void eventRegister() {
-        while(this.event == null) {
+        while (this.event == null) {
             try {
                 this.event = new Event(parseReservationDate(inputView.reservastionDateInput()));
             } catch (IllegalArgumentException e) {

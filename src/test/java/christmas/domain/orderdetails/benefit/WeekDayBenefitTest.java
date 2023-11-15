@@ -19,6 +19,7 @@ class WeekDayBenefitTest {
             new Order("초코케이크", 2),
             new Order("제로콜라", 1)
     );
+
     @Test
     void 평일_혜택_테스트() {
         WeekDayBenefit weekDayBenefit = new WeekDayBenefit();

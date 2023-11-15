@@ -19,7 +19,7 @@ class GiftMenuTest {
         assertThat(giftMenu.toString()).contains("샴페인 1개");
         assertEquals(25000, giftMenu.price());
     }
-    
+
     @Test
     void 증정_메뉴_비대상() {
         GiftMenu giftMenu = new GiftMenu();

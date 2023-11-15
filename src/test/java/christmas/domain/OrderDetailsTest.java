@@ -17,7 +17,7 @@ class OrderDetailsTest {
             new Order("제로콜라", 1)
     );
 
-    List<Order> secondExampleOrders = Arrays.asList(new Order("타파스", 1), new Order("제로콜라",1));
+    List<Order> secondExampleOrders = Arrays.asList(new Order("타파스", 1), new Order("제로콜라", 1));
 
     @Test
     void 예시_주문1_혜택_적용() {

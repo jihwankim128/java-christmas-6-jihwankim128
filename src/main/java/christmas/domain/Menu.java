@@ -3,7 +3,7 @@ package christmas.domain;
 import java.util.Arrays;
 
 public enum Menu {
-    MUSHROOM_SOUP("양송이수프", "애피타이저",6_000),
+    MUSHROOM_SOUP("양송이수프", "애피타이저", 6_000),
     TAPAS("타파스", "애피타이저", 5_500),
     CAESAR_SALAD("시저샐러드", "애피타이저", 8_000),
 
@@ -12,7 +12,7 @@ public enum Menu {
     SEAFOOD_PASTA("해산물파스타", "메인", 35_000),
     CHRISTMAS_PASTA("크리스마스파스타", "메인", 25_000),
 
-    CHOCO_CAKE("초코케이크","디저트",15_000),
+    CHOCO_CAKE("초코케이크", "디저트", 15_000),
     ICE_CREAM("아이스크림", "디저트", 5_000),
 
     ZERO_COKE("제로콜라", "음료", 3_000),
@@ -45,7 +45,7 @@ public enum Menu {
 
     public static Menu getMenu(String menuName) {
         return Arrays.stream(values())
-                .filter(menu-> menu.name.equals(menuName))
+                .filter(menu -> menu.name.equals(menuName))
                 .findFirst()
                 .orElse(ETC);
     }

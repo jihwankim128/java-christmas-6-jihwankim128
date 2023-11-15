@@ -18,7 +18,7 @@ class MenuTest {
     }
 
     @ParameterizedTest
-    @CsvSource({"티본스테이크,메인,55000","바비큐립,메인,54000","해산물파스타,메인,35000","크리스마스파스타,메인,25_000"})
+    @CsvSource({"티본스테이크,메인,55000", "바비큐립,메인,54000", "해산물파스타,메인,35000", "크리스마스파스타,메인,25_000"})
     void 메인_메뉴_테스트(String menuName, String menuType, int menuPrice) {
         menu = Menu.getMenu(menuName);
         assertEqualResult(menuName, menuType, menuPrice);

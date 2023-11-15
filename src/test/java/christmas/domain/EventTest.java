@@ -46,9 +46,9 @@ class EventTest {
         assertTrue(new Event(31).isGiftEvent(120000));
         assertFalse(new Event(31).isGiftEvent(119999));
     }
-    
+
     @ParameterizedTest
-    @CsvSource({"32","0","-1"})
+    @CsvSource({"32", "0", "-1"})
     void 이벤트_날짜_범위_외_테스트(int day) {
         assertThatThrownBy(() -> new Event(day))
                 .isInstanceOf(IllegalArgumentException.class)

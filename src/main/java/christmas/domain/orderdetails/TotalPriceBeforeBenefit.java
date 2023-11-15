@@ -9,7 +9,7 @@ public class TotalPriceBeforeBenefit {
     private int totalPrice = 0;
 
     public TotalPriceBeforeBenefit(List<Order> orders) {
-        for(Order order : orders) {
+        for (Order order : orders) {
             this.totalPrice += order.getMenuPrice() * order.getQuantity();
         }
     }

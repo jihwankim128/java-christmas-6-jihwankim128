@@ -40,7 +40,7 @@ class BenefitTest {
 
     @Test
     void 무혜택_테스트() {
-        List<Order> orders = Arrays.asList(new Order("타파스", 1), new Order("제로콜라",1));
+        List<Order> orders = Arrays.asList(new Order("타파스", 1), new Order("제로콜라", 1));
         benefit.applyBenefit(orders, 8500, new Event(26));
         assertThat(benefit.toString()).contains("없음");
         assertEquals(0, benefit.totalDiscountAmount());

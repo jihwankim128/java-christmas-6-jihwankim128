@@ -22,7 +22,7 @@ public class OrderDetails {
     }
 
     public void provideGift(Event event) {
-        if(event.isGiftEvent(totalPriceBeforeBenefit.getTotalPrice())) {
+        if (event.isGiftEvent(totalPriceBeforeBenefit.getTotalPrice())) {
             this.giftMenu.provide();
         }
     }

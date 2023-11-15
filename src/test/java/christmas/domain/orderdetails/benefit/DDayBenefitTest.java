@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 @DisplayName("디데이 혜택 테스트")
 class DDayBenefitTest {
     DDayBenefit dDayBenefit;
+
     @BeforeEach
     void init() {
         dDayBenefit = new DDayBenefit();

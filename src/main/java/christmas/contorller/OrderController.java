@@ -18,7 +18,7 @@ public class OrderController {
     }
 
     public void ordersRegister() {
-        while(this.orders == null) {
+        while (this.orders == null) {
             try {
                 List<String> orderMenus = Utility.splitUtility(inputView.orderMenusInput(), ",");
                 this.orders = parseOrders(orderMenus);
@@ -30,7 +30,7 @@ public class OrderController {
 
     private Orders parseOrders(List<String> orderMenus) {
         List<Order> ordersTemp = new ArrayList<>();
-        for (String orderMenu: orderMenus) {
+        for (String orderMenu : orderMenus) {
             List<String> menuNameAndQuantity = Utility.splitUtility(orderMenu, "-");
             InputDataException.validateInputSize(menuNameAndQuantity.size());
             InputDataException.validateInteger(menuNameAndQuantity.get(1), IllegalArgumentMessage.INVALID_ORDER);

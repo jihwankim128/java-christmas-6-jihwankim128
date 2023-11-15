@@ -21,7 +21,7 @@ public class Event {
     }
 
     private void validate(int reservationDate) {
-        if(reservationDate < EVENT_START_DATE || reservationDate > EVENT_END_DATE) {
+        if (reservationDate < EVENT_START_DATE || reservationDate > EVENT_END_DATE) {
             throw new IllegalArgumentException(IllegalArgumentMessage.INVALID_DATE);
         }
     }

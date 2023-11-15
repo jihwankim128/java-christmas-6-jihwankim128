@@ -21,7 +21,7 @@ public class Benefit {
     private final GiftBenefit giftBenefit = new GiftBenefit();
 
     public void applyBenefit(List<Order> orders, int totalPrice, Event event) {
-        if(totalPrice >= DISCOUNT_EVENT_MINIMUM_TOTAL_PRICE) {
+        if (totalPrice >= DISCOUNT_EVENT_MINIMUM_TOTAL_PRICE) {
             applyDDayBenefit(event);
             applyWeekDayBenefit(orders, event);
             applyWeekEndBenefit(orders, event);
@@ -39,43 +39,43 @@ public class Benefit {
     }
 
     private void applyDDayBenefit(Event event) {
-        if(event.isDDayEvent()) {
+        if (event.isDDayEvent()) {
             dDayBenefit.applyDDayBenefit(event.getReservationDate());
             this.appliedBenefits.add(dDayBenefit.toString());
         }
     }
 
     private void applyWeekDayBenefit(List<Order> orders, Event event) {
-        if(event.isWeekDayEvent()) {
+        if (event.isWeekDayEvent()) {
             weekDayBenefit.applyWeekDayBenefit(orders);
-            if(weekDayBenefit.getDiscountAmount() > 0) {
+            if (weekDayBenefit.getDiscountAmount() > 0) {
                 this.appliedBenefits.add(weekDayBenefit.toString());
             }
         }
     }
 
     private void applyWeekEndBenefit(List<Order> orders, Event event) {
-        if(event.isWeekEndEvent()) {
+        if (event.isWeekEndEvent()) {
             weekEndBenefit.applyWeekEndBenefit(orders);
-            if(weekEndBenefit.getDiscountAmount() > 0) {
+            if (weekEndBenefit.getDiscountAmount() > 0) {
                 this.appliedBenefits.add(weekEndBenefit.toString());
             }
         }
     }
 
     private void applySpecialBenefit(Event event) {
-        if(event.isSpecialEvent()) {
+        if (event.isSpecialEvent()) {
             specialBenefit.applySpecialBenefit();
-            if(specialBenefit.getDiscountAmount() > 0) {
+            if (specialBenefit.getDiscountAmount() > 0) {
                 this.appliedBenefits.add(specialBenefit.toString());
             }
         }
     }
 
     private void applyGiftBenefit(int totalPrice, Event event) {
-        if(event.isGiftEvent(totalPrice)) {
+        if (event.isGiftEvent(totalPrice)) {
             giftBenefit.applyGiftBenefit();
-            if(giftBenefit.getDiscountAmount() > 0) {
+            if (giftBenefit.getDiscountAmount() > 0) {
                 this.appliedBenefits.add(giftBenefit.toString());
             }
         }
@@ -83,11 +83,11 @@ public class Benefit {
 
     @Override
     public String toString() {
-        if(appliedBenefits.isEmpty()) {
+        if (appliedBenefits.isEmpty()) {
             return "없음\n";
         }
         StringBuilder stringBuilder = new StringBuilder();
-        for(String benefit: appliedBenefits) {
+        for (String benefit : appliedBenefits) {
             stringBuilder.append(benefit);
         }
         return stringBuilder.toString();

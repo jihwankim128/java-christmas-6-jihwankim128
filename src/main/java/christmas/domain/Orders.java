@@ -27,13 +27,13 @@ public class Orders {
     }
 
     private void validateDuplication(List<Order> orders) {
-        if(orders.stream().map(Order::getMenu).distinct().count() != orders.size()) {
+        if (orders.stream().map(Order::getMenu).distinct().count() != orders.size()) {
             throw new IllegalArgumentException(IllegalArgumentMessage.INVALID_ORDER);
         }
     }
 
     private void validateIsOnlyDrink(List<Order> orders) {
-        if(isOnlyDrink(orders)) {
+        if (isOnlyDrink(orders)) {
             throw new IllegalArgumentException(IllegalArgumentMessage.INVALID_ORDER);
         }
     }
@@ -46,7 +46,7 @@ public class Orders {
     @Override
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
-        for(Order order: orders) {
+        for (Order order : orders) {
             stringBuilder.append(order.toString());
         }
         return stringBuilder.toString();
