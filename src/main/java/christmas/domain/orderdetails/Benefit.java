@@ -48,28 +48,36 @@ public class Benefit {
     private void applyWeekDayBenefit(List<Order> orders, Event event) {
         if(event.isWeekDayEvent()) {
             weekDayBenefit.applyWeekDayBenefit(orders);
-            this.appliedBenefits.add(weekDayBenefit.toString());
+            if(weekDayBenefit.getDiscountAmount() > 0) {
+                this.appliedBenefits.add(weekDayBenefit.toString());
+            }
         }
     }
 
     private void applyWeekEndBenefit(List<Order> orders, Event event) {
         if(event.isWeekEndEvent()) {
             weekEndBenefit.applyWeekEndBenefit(orders);
-            this.appliedBenefits.add(weekEndBenefit.toString());
+            if(weekEndBenefit.getDiscountAmount() > 0) {
+                this.appliedBenefits.add(weekEndBenefit.toString());
+            }
         }
     }
 
     private void applySpecialBenefit(Event event) {
         if(event.isSpecialEvent()) {
             specialBenefit.applySpecialBenefit();
-            this.appliedBenefits.add(specialBenefit.toString());
+            if(specialBenefit.getDiscountAmount() > 0) {
+                this.appliedBenefits.add(specialBenefit.toString());
+            }
         }
     }
 
     private void applyGiftBenefit(int totalPrice, Event event) {
         if(event.isGiftEvent(totalPrice)) {
             giftBenefit.applyGiftBenefit();
-            this.appliedBenefits.add(giftBenefit.toString());
+            if(giftBenefit.getDiscountAmount() > 0) {
+                this.appliedBenefits.add(giftBenefit.toString());
+            }
         }
     }
 
