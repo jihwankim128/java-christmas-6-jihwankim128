@@ -5,9 +5,7 @@ import christmas.domain.orderdetails.EventBadge;
 import christmas.domain.orderdetails.TotalDiscountAmount;
 import christmas.domain.orderdetails.TotalPriceAfterBenefit;
 import christmas.domain.orderdetails.GiftMenu;
-import christmas.domain.orderdetails.Orders;
 import christmas.domain.orderdetails.TotalPriceBeforeBenefit;
-import java.util.List;
 
 public class OrderDetails {
     private final Orders orders;
@@ -17,9 +15,9 @@ public class OrderDetails {
     private final Benefit benefit = new Benefit();
     private final TotalDiscountAmount totalDiscountAmount = new TotalDiscountAmount();
 
-    public OrderDetails(List<Order> orders) {
-        this.orders = new Orders(orders);
-        this.totalPriceBeforeBenefit = new TotalPriceBeforeBenefit(orders);
+    public OrderDetails(Orders orders) {
+        this.orders = orders;
+        this.totalPriceBeforeBenefit = new TotalPriceBeforeBenefit(orders.getOrders());
         this.totalPriceAfterBenefit = new TotalPriceAfterBenefit(totalPriceBeforeBenefit.getTotalPrice());
     }
 

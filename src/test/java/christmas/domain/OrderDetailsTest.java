@@ -21,7 +21,7 @@ class OrderDetailsTest {
 
     @Test
     void 예시_주문1_혜택_적용() {
-        OrderDetails orderDetails = new OrderDetails(firstExampleOrders);
+        OrderDetails orderDetails = new OrderDetails(new Orders(firstExampleOrders));
         orderDetails.provideGift(new Event(3));
         orderDetails.applyBenefit(new Event(3));
         예시_주문_목록(orderDetails);
@@ -35,7 +35,7 @@ class OrderDetailsTest {
 
     @Test
     void 예시_주문2() {
-        OrderDetails orderDetails = new OrderDetails(secondExampleOrders);
+        OrderDetails orderDetails = new OrderDetails(new Orders(secondExampleOrders));
         assertThat(orderDetails.getOrders().toString()).contains("타파스 1개", "제로콜라 1개");
         assertThat(orderDetails.getTotalPriceBeforeBenefit().toString()).contains("8,500원");
         assertThat(orderDetails.getGiftMenu().toString()).contains("없음");
