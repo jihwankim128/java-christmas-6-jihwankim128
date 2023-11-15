@@ -17,6 +17,6 @@ public class TotalDiscountAmount {
 
     @Override
     public String toString() {
-        return String.format("%s 원\n", Utility.numberFormatter(-discountAmount));
+        return String.format("%s원\n", Utility.numberFormatter(-discountAmount));
     }
 }

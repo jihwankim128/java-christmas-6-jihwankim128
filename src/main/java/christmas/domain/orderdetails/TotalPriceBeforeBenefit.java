@@ -21,6 +21,6 @@ public class TotalPriceBeforeBenefit {
 
     @Override
     public String toString() {
-        return String.format("%s 원\n", Utility.numberFormatter(totalPrice));
+        return String.format("%s원\n", Utility.numberFormatter(totalPrice));
     }
 }
