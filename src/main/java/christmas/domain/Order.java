@@ -1,9 +1,9 @@
 package christmas.domain;
 
 import christmas.utility.IllegalArgumentMessage;
+import christmas.utility.OrderConstant;
 
 public class Order {
-    public static final int MINIMUM_QUANTITY = 1;
     private final Menu menu;
     private final int quantity;
 
@@ -21,7 +21,7 @@ public class Order {
     }
 
     private void validateQuantity(int quantity) {
-        if (quantity < MINIMUM_QUANTITY) {
+        if (quantity < OrderConstant.MINIMUM_QUANTITY) {
             throw new IllegalArgumentException(IllegalArgumentMessage.INVALID_ORDER);
         }
     }

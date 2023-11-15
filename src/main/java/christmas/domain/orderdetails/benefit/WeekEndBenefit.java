@@ -1,20 +1,18 @@
 package christmas.domain.orderdetails.benefit;
 
 import christmas.domain.Order;
+import christmas.utility.OrderConstant;
 import christmas.utility.Utility;
-import java.text.NumberFormat;
 import java.util.List;
-import java.util.Locale;
 
 public class WeekEndBenefit {
-    public static final int DISCOUNT_PRICE = 2023;
     private int discountAmount = 0;
 
     public void applyWeekEndBenefit(List<Order> orders) {
         this.discountAmount = orders.stream()
-                .filter(order -> order.getMenuType().equals("메인"))
+                .filter(order -> order.getMenuType().equals(OrderConstant.MAIN))
                 .mapToInt(Order::getQuantity)
-                .sum() * DISCOUNT_PRICE;
+                .sum() * OrderConstant.DISCOUNT_PRICE;
     }
 
     public int getDiscountAmount() {

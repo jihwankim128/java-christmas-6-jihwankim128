@@ -7,12 +7,12 @@ import christmas.domain.orderdetails.benefit.GiftBenefit;
 import christmas.domain.orderdetails.benefit.SpecialBenefit;
 import christmas.domain.orderdetails.benefit.WeekDayBenefit;
 import christmas.domain.orderdetails.benefit.WeekEndBenefit;
+import christmas.utility.EventConstant;
+import christmas.utility.OrderConstant;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Benefit {
-    public static final int DISCOUNT_EVENT_MINIMUM_TOTAL_PRICE = 10000;
-
     private final List<String> appliedBenefits = new ArrayList<>();
     private final DDayBenefit dDayBenefit = new DDayBenefit();
     private final WeekDayBenefit weekDayBenefit = new WeekDayBenefit();
@@ -21,7 +21,7 @@ public class Benefit {
     private final GiftBenefit giftBenefit = new GiftBenefit();
 
     public void applyBenefit(List<Order> orders, int totalPrice, Event event) {
-        if (totalPrice >= DISCOUNT_EVENT_MINIMUM_TOTAL_PRICE) {
+        if (totalPrice >= EventConstant.DISCOUNT_EVENT_MINIMUM_TOTAL_PRICE) {
             applyDDayBenefit(event);
             applyWeekDayBenefit(orders, event);
             applyWeekEndBenefit(orders, event);
@@ -84,7 +84,7 @@ public class Benefit {
     @Override
     public String toString() {
         if (appliedBenefits.isEmpty()) {
-            return "없음\n";
+            return OrderConstant.NONE;
         }
         StringBuilder stringBuilder = new StringBuilder();
         for (String benefit : appliedBenefits) {

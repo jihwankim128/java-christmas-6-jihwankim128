@@ -1,13 +1,13 @@
 package christmas.domain.orderdetails.benefit;
 
 import christmas.domain.Order;
+import christmas.utility.OrderConstant;
 import christmas.utility.Utility;
 import java.text.NumberFormat;
 import java.util.List;
 import java.util.Locale;
 
 public class WeekDayBenefit {
-    public static final int DISCOUNT_PRICE = 2023;
     private int discountAmount = 0;
 
     public int getDiscountAmount() {
@@ -16,9 +16,9 @@ public class WeekDayBenefit {
 
     public void applyWeekDayBenefit(List<Order> orders) {
         this.discountAmount = orders.stream()
-                .filter(order -> order.getMenuType().equals("디저트"))
+                .filter(order -> order.getMenuType().equals(OrderConstant.DESSERT))
                 .mapToInt(Order::getQuantity)
-                .sum() * DISCOUNT_PRICE;
+                .sum() * OrderConstant.DISCOUNT_PRICE;
     }
 
     @Override
